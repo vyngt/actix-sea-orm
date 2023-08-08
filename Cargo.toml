@@ -1,0 +1,14 @@
+[package]
+name = "ezytutor"
+version = "0.1.0"
+edition = "2021"
+description = "Just for learn"
+keywords = ["learn", "tutorial", "actix", "sea-orm"]
+authors = ["VyNT <vyngt@outlook.com>"]
+
+[workspace]
+members = ["tutor-db"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

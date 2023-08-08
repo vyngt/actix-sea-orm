@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    ports:
+      - 5432:5432
+    env_file:
+      - postgres/postgresql.env
+    volumes:
+      - ezy_tutor_db:/var/lib/postgresql/data
+    restart: on-failure
+
+volumes:
+  ezy_tutor_db:
