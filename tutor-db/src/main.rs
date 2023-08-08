@@ -3,18 +3,30 @@ use dotenvy::dotenv;
 
 use std::env;
 use std::io;
-use std::sync::Mutex;
 
+mod database;
 mod handlers;
+mod models;
 mod routes;
+mod state;
 
+use database::get_db_connection;
 use routes::general_routes;
+use state::AppState;
 
 #[actix_rt::main]
 pub async fn main() -> io::Result<()> {
     dotenv().ok();
 
-    let app = move || App::new().configure(general_routes);
+    let db = get_db_connection().await;
+
+    let app_state = web::Data::new(AppState { db });
+
+    let app = move || {
+        App::new()
+            .app_data(app_state.clone())
+            .configure(general_routes)
+    };
 
     let host_name: String = env::var("HOST_NAME").unwrap_or(String::from("127.0.0.1"));
     let host_port = env::var("HOST_PORT").unwrap_or(String::from("8080"));
