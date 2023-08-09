@@ -11,7 +11,7 @@ mod routes;
 mod state;
 
 use database::get_db_connection;
-use routes::general_routes;
+use routes::{course_routes, general_routes};
 use state::AppState;
 
 #[actix_rt::main]
@@ -26,6 +26,7 @@ pub async fn main() -> io::Result<()> {
         App::new()
             .app_data(app_state.clone())
             .configure(general_routes)
+            .configure(course_routes)
     };
 
     let host_name: String = env::var("HOST_NAME").unwrap_or(String::from("127.0.0.1"));
