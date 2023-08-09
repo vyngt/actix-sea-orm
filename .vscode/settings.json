@@ -1,4 +1,3 @@
 {
-  "cSpell.words": ["actix", "chrono", "rustls", "sqlx"],
-  "rust-analyzer.linkedProjects": [".\\tutor-db\\migration\\Cargo.toml"]
+  "cSpell.words": ["actix", "chrono", "rustls", "sqlx"]
 }

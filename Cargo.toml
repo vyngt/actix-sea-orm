@@ -7,7 +7,7 @@ keywords = ["learn", "tutorial", "actix", "sea-orm"]
 authors = ["VyNT <vyngt@outlook.com>"]
 
 [workspace]
-members = ["tutor-db"]
+members = ["tutor-db", "migration"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
