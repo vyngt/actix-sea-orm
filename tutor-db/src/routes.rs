@@ -6,10 +6,13 @@ pub fn general_routes(cfg: &mut web::ServiceConfig) {
 }
 
 pub fn course_routes(cfg: &mut web::ServiceConfig) {
-    cfg.route("/course", web::post().to(post_new_course));
-    cfg.route("/course/{tutor_id}", web::get().to(get_courses_for_tutor));
+    cfg.route("/courses", web::post().to(handle_post_new_course));
     cfg.route(
-        "/course/{tutor_id}/{course_id}",
-        web::get().to(get_course_details),
+        "/courses/{tutor_id}",
+        web::get().to(handle_get_courses_for_tutor),
+    );
+    cfg.route(
+        "/courses/{tutor_id}/{course_id}",
+        web::get().to(handle_get_course_details),
     );
 }

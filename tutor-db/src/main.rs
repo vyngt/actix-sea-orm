@@ -5,6 +5,7 @@ use std::env;
 use std::io;
 
 mod database;
+mod errors;
 mod handlers;
 mod models;
 mod routes;
